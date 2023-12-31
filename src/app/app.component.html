@@ -1,0 +1,140 @@
+<header fxLayout="row" fxLayoutGap=" 20px" fxLayoutGap.xs=" 10px" class="bg-white shadow position-sticky" fxLayoutAlign="start" fxLayout.md="row" fxLayout.sm="row" fxLayout.xs="row"  >
+    
+    <div fxFlex.sm="23%" fxFlex.xs="18%" fxLayout fxLayoutAlign="start center" fxLayoutAlign.md="start center">
+        <button mat-icon-button  (click)="toggleDrawer()" class="float-end" fxShow.xs fxHide >
+            <mat-icon>menu</mat-icon>
+        </button>
+        <div fxlayout fxFlexOffset="5px"  fxFlexAlign=" start center" class="me-3 mt-2 " fxHide.xs>
+            <img src="../assets/oia.png" alt="logo" width="100px"   class="">
+        </div>
+        <div class="vr mt-2" ></div>
+        <div fxlayout fxLayoutAlign="start center " class="ms-3" fxLayoutAlign.xs="center center">
+            <img src="../assets/oia2.png" alt="oia" width="200px" >
+        </div> 
+
+
+        <div  fxLayout fxLayoutAlign="end center" class="" fxHide fxShow.xs fxLayoutAlign.xs="center center">
+            <span class="" fxHide.xs>Arabic</span>
+            <img src="../assets/arab.png" alt="arab" width="35px" class="mx-2">
+        </div>
+        
+    </div>     
+
+    <div class="rightHeader "  fxFlex.md="58%" fxLayout fxLayoutAlign="end center" fxLayout fxLayoutGap="25px" fxFlex.lg   fxLayoutGap.xs="0px" fxHide.xs >
+        <div fxFlexOffset=" 300px" class="me-3" fxLayout >
+            <span class="">Arabic</span>
+            <img src="../assets/arab.png" alt="arab" width="35px" class="mx-2">
+        </div>
+
+        <!-- <select fxLayout="" fxLayoutAlign="end center"  >
+            <option value="USD">USD</option>
+            <option value="INR">INR</option>
+            <option value="OMR">OMR</option>
+            <option value="EUR">EUR</option>
+        </select> -->
+        
+        <!-- <a href=""><i class="fa fa-arrows-alt fs-3 arrow mx-3" ></i></a> -->
+        <a href="" fxHide.sm > 
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrows-maximize" width="35" height="35" viewBox="0 0 24 24" stroke-width="1.5" stroke="#989898" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M16 4l4 0l0 4" />
+                <path d="M14 10l6 -6" />
+                <path d="M8 20l-4 0l0 -4" />
+                <path d="M4 20l6 -6" />
+                <path d="M16 20l4 0l0 -4" />
+                <path d="M14 14l6 6" />
+                <path d="M8 4l-4 0l0 4" />
+                <path d="M4 4l6 6" />
+              </svg>
+        </a>
+
+        <a href="" fxHide.sm>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-layout-dashboard " width="35" height="35" viewBox="0 0 24 24" stroke-width="1.5" stroke="#989898" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M4 4h6v8h-6z" />
+                <path d="M4 16h6v4h-6z" />
+                <path d="M14 12h6v8h-6z" />
+                <path d="M14 4h6v4h-6z" />
+            </svg>
+        </a>
+
+        <a href="" class="text-decoration-none bell "  matBadge="5" matBadgeColor="warn"><i class="fa fa-bell-o fs-3"></i> </a>
+        <div class="vr ms-3 mt-2"></div>
+        
+        <div  class="me-2" >
+        <img src="../assets/oia-logo.png" alt="bgi" width="55px" class="">
+
+        
+        </div>
+
+        <div fxlayout="column" class="me-2" fxHide.md fxHide.sm >
+            <b class="" style="color: #000000;">
+                Oman Investment Authority
+            </b>
+            <div style="color: rgb(211, 211, 211);">
+                Company Code: <b class="text-dark">OIA15240</b>
+            </div>
+        </div>
+
+
+
+        <button [matMenuTriggerFor]="menu" class="border-0 bg-white "  fxHide.md  fxHide.sm><i class="ti ti-circle-chevron-down fs-4 " style="color:#cca953"></i></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Change Password</button>
+            <button mat-menu-item>Log out</button>
+            </mat-menu>
+        </div>
+  
+   
+  
+              
+    <!-- </div> -->
+</header>
+
+<mat-drawer-container class="example-container " >
+    
+    <mat-drawer id="leftDraw" #drawer class="example-sidenav" mode="side" [opened]="isDrawerOpened" [disableClose]="XsScreen">
+        
+        <nav class="example-container" >
+            
+            <div fxLayout="column" class="side" fxLayoutGap="8px">
+                <a href="" class="text-decoration-none text-white" fxLayout="row" >
+                    <div class="ti ti-arrows-exchange-2 fs-2 p-3" fxFlexAlign=" start center" fxLayout=" row" fxLayoutGap="25px"> <span class="mx-3 fs-3"></span> </div>
+                </a>
+
+                <a routerLink="/dashboard" routerLinkActive="active" class="text-decoration-none text-white" fxLayout="row" >
+                    <div class="ti ti-dashboard fs-2  p-3" fxFlexAlign=" start center" fxLayout=" row" fxLayoutGap="25px"> <span class="mx-3 fs-5 mt-2">Dashboard</span> </div>
+                </a>
+
+                <a routerLink="/users" class="text-decoration-none text-white" fxLayout="row">
+                    <div class="ti ti-user-cog fs-3  p-3 " fxFlexAlign=" start center" fxLayout=" row" fxLayoutGap="30px"> <span class="mx-4 fs-5 mt-2" >Shopzy</span> </div>
+
+                </a>
+
+                <a routerLink="/settings" class="text-decoration-none text-white">
+                    <div class="ti ti-settings fs-2  p-3" fxFlexAlign=" start center" fxLayout=" row" fxLayoutGap="25px"> <span class="mx-3 fs-5 mt-2">Opal</span> </div>
+
+                </a>
+
+                <a routerLink="/locker" class="text-decoration-none text-white">
+                    <div class="ti ti-lock-square-rounded fs-2  p-3" fxFlexAlign=" start center" fxLayout=" row" fxLayoutGap="25px"> <span class="mx-3 fs-5 mt-2">Locker</span> </div>
+                </a>
+
+                <a routerLink="/database" class="text-decoration-none text-white">
+                    <div class="ti ti-database-cog fs-2  p-3" fxFlexAlign=" start center" fxLayout=" row" fxLayoutGap="25px"> <span class="mx-3 fs-5 my-2">Database</span> </div>
+                </a>
+
+
+            </div>
+        </nav>
+    </mat-drawer>
+        
+        
+    <router-outlet></router-outlet>
+</mat-drawer-container>
+
+
+    
+
+
+

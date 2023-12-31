@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+
+    <header id="header " class="bg-dark">
+        <h1 class="text-center text-light">Shirts & T-Shirts Store</h1>
+        <nav class=" text-center">
+          <ul class="d-flex w-100 list-unstyled text-center">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Shirts</a></li>
+              <li><a href="#">T-Shirts</a></li>
+              <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+    </header>
+
+    <br>
+    
+    <div class="alert alert-success container w-75 position-relative top-0 right-0 mx-auto " role="alert" id="alert" style="z-index: 99; display: none; " >
+      <span>To add a shortcut App to your Home Screen, <b style="color: #ff3d30 !important;">CLICK INSTALL! </b> </span>
+    </div>
+
+    <div class="container">
+        <div class="card  mx-3" style="width: 18rem;">
+            <img class="card-img-top" src="../assets/hm1.webp" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title text-center">Shirt 1</h3>
+              <p class="card-text text-center text-l">Price: &#8377;999.99</p>
+              <a href="#" class="btn btn-dark text-center w-100" >Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="card my-3 mx-3" style="width: 18rem;">
+            <img class="card-img-top" src="../assets/hm4.webp" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title text-center">Shirt 2</h3>
+              <p class="card-text text-center text-l">Price: &#8377;1999.99</p>
+              <a href="#" class="btn btn-dark text-center w-100" >Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="card my-3 mx-3 card3" style="width: 18rem;">
+            <img class="card-img-top" src="../assets/hm2.webp" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title text-center">Shirt 3</h3>
+              <p class="card-text text-center text-l">Price: &#8377;2399.99</p>
+              <a href="#" class="btn btn-dark text-center w-100" >Add to Cart</a>
+            </div>
+        </div>
+    
+    </div>
+    
+    <!-- modal popup  -->
+    <div class="modal" tabindex="-1" role="dialog" id="myModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <!-- <h5 class="modal-title">Modal title</h5> -->
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Should I include a shortcut App to Home Screen?</p>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" id="shortKey" data-dismiss="modal" type="button" data-target="#alert">Yes!</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">No!</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="later"><abbr title="It will remind you after 30 sec">Remind me later</abbr> </button>
+            </div>
+          </div>
+        </div>
+    </div>  <br> <br>
+    
+
+    <footer class="" id="footer">
+        <p class="text-light my-2" >Contact: contact@example.com | Phone: +1 123-456-7890</p>
+    </footer>
+
+</body>
+</html>

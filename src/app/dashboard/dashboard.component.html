@@ -1,0 +1,396 @@
+<mat-drawer-container class="example-container " >
+    
+    <mat-drawer #rightDraw class="example-sidenav" mode="over" position="end" [opened]="rightDrawer">
+        <form [formGroup]="userForm" (ngSubmit)="addUser(userForm.value)">
+            <div class="formDiv ">
+                <div fxLayoutAlign="end " class="ti ti-x fs-2 fw-bold text-dark bg-light py-3" (click)="opendialog()" ></div>
+                <div class="row">
+                    <div class="col-sm-6">
+                    <mat-form-field appearance="outline" class="m-3 fn">
+                        <mat-label>First Name</mat-label>
+                        <input matInput placeholder="First Name" formControlName="firstName" required>
+                        <mat-error *ngIf="form['firstName'].errors?.['required']">Enter First Name</mat-error>
+            
+                    </mat-form-field>
+                    </div>  
+                    <div class="col-sm-6">
+                    <mat-form-field appearance="outline" class="m-3 ln">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput placeholder="Last Name" formControlName="lastName" required>
+                        <mat-error *ngIf="form['lastName'].errors?.['required']">Enter Last Name</mat-error>
+                    </mat-form-field>
+                    </div>
+                </div>  
+            
+                <div class="row">
+                    <div class="col-sm-6" >
+                    <mat-form-field appearance="outline" class="m-3 ">
+                        <mat-label>Email ID</mat-label>
+                        <input matInput placeholder="First Name" formControlName="email" required>
+                        <mat-error *ngIf="form['email'].errors?.['required']">Enter Email ID</mat-error>
+                    </mat-form-field>
+                    </div>
+                    <div class="col-sm-6">
+                    <mat-form-field appearance="outline" class="my-3 dob " >
+                        <mat-label>Date of Birth</mat-label>
+                        <input matInput [matDatepicker]="picker" (click)="picker.open()" formControlName="dob" [max]="maxDates" >
+                        <mat-error *ngIf="form['dob'].errors?.['required']">Enter Date of Birth</mat-error>
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    </div>
+                </div>
+            
+                <mat-radio-group aria-label="Select an option" class="mx-5" formControlName="gender">
+                    <mat-label class="" style="color: grey;">Gender</mat-label>
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                    <mat-radio-button value="Other">Other</mat-radio-button>
+                    <!-- <mat-error class="mx-5" *ngIf="form['gender'].errors?.['required']">Select Gender</mat-error> -->
+                    
+                </mat-radio-group>
+
+                    <!-- filesss -->
+                
+                    <input type="file" (change)="fileSelect($event, user)" #fileUpload class="files">
+                <br>
+            
+                <!-- buttons  -->
+                <div fxLayout fxLayoutAlign="center">
+                    <button type="button" mat-stroked-button color="primary" class=" my-5 add " (click)="addUser(userForm.value)" (click)="rightDraw.toggle()" (click)="openSnackBar()">{{ isEditMode ? 'Update' : 'Add'}}</button>
+                    <button type="button" mat-stroked-button color="warn" class=" mx-3 my-5 add " (click)="reset()">Reset</button>
+                </div>    
+            
+            </div>
+            
+        
+        
+        </form>
+        
+       
+    </mat-drawer>
+
+    <div class="container">
+        <div class="m-4 row" >
+            <div class="col-6">  <h4  class="text fw-bold">Welcome to the Master Configuration</h4></div>
+            
+            <div class=" col-6 d-flex justify-content-end"><p class="mc"> Master Configuration < Home </p></div>
+        </div>
+        <div class="m-4 row">
+            <p>The Master Configuration Dashboard is your centalized control center for configuring and managing various aspects of our system/application. This powerful tool
+                <br>
+                empowers you to tailor and fine-tune the system to meet your specific needs.
+            </p>
+        </div>
+        <div fxLayout="ms-5 row " fxLayout.sm="column" fxLayoutAlign.sm="center center">
+            <mat-card class="example-card shadow-sm p-3 mb-5 bg-body rounded ms-4" >
+                <mat-card-header>
+                    
+                    <mat-card-title class="text mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-ipad" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M18 2a3 3 0 0 1 2.995 2.824l.005 .176v14a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-14a3 3 0 0 1 2.824 -2.995l.176 -.005h12zm-3 15h-6l-.117 .007a1 1 0 0 0 0 1.986l.117 .007h6l.117 -.007a1 1 0 0 0 0 -1.986l-.117 -.007z" />
+                    </svg> 
+                    
+                    Parameters Configuration
+                    </mat-card-title>
+                
+                </mat-card-header>
+                <mat-card-content > 
+                <ul class="list-group  ">
+                    <li class="list-group-item border-0" fxLayoutGap="100px">ICV Plan 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cca953" fill="none" stroke-linecap="round" stroke-linejoin="round" >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M5 12l14 0" />
+                    <path d="M15 16l4 -4" />
+                    <path d="M15 8l4 4" />
+                    </svg>
+                </li>
+                    <li class="list-group-item border-0">ICV Reporting
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cca953" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M5 12l14 0" />
+                        <path d="M15 16l4 -4" />
+                        <path d="M15 8l4 4" />
+                    </svg>
+                    </li>
+                    <li class="list-group-item border-0">ICV Pillars configuration
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cca953" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M5 12l14 0" />
+                        <path d="M15 16l4 -4" />
+                        <path d="M15 8l4 4" />
+                    </svg>
+                    </li>
+                </ul>
+                </mat-card-content>
+            </mat-card>
+    
+            <mat-card class="example-card shadow-sm p-3 mb-5 bg-body rounded ms-4" >
+                <mat-card-header>
+                    
+                    <mat-card-title class="text mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-ipad-check" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v8" />
+                        <path d="M9 18h2" />
+                        <path d="M15 19l2 2l4 -4" />
+                    </svg>
+                        Ranking Configuration
+                    </mat-card-title>
+                
+                </mat-card-header>
+                <mat-card-content > 
+                <ul class="list-group  ">
+                    <li class="list-group-item border-0">KPI, Target & Weightage
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cca953" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M5 12l14 0" />
+                        <path d="M15 16l4 -4" />
+                        <path d="M15 8l4 4" />
+                    </svg>
+                    </li>
+                    <li class="list-group-item border-0">Rating Configuration
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cca953" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M5 12l14 0" />
+                        <path d="M15 16l4 -4" />
+                        <path d="M15 8l4 4" />
+                    </svg>
+                    </li> 
+                </ul>
+                </mat-card-content>
+            </mat-card>
+    
+            <mat-card class="example-card shadow-sm p-3 mb-5 bg-body rounded ms-4" >
+                <mat-card-header>
+                    
+                    <mat-card-title class="text mb-2" fxLayout>
+    
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings-star" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M10.325 19.683a1.723 1.723 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572a1.67 1.67 0 0 1 1.106 .831" />
+                        <path d="M14.89 11.195a3.001 3.001 0 1 0 -4.457 3.364" />
+                        <path d="M17.8 20.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z" />
+                    </svg>
+                        Master List Configuration 
+                       
+                    </mat-card-title>
+                
+                </mat-card-header>
+                <mat-card-content > 
+                
+                <ul class="list-group">
+                    <li class="list-group-item border-0"> Products & Service Category
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cca953" fill="none" stroke-linecap="round" stroke-linejoin="round" >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M5 12l14 0" />
+                        <path d="M15 16l4 -4" />
+                        <path d="M15 8l4 4" />
+                    </svg>
+                    </li>
+                    <li class="list-group-item border-0">Mandatory List
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cca953" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M5 12l14 0" />
+                        <path d="M15 16l4 -4" />
+                        <path d="M15 8l4 4" />
+                    </svg>
+                    </li>
+                    <li class="list-group-item border-0">Preferred List 
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cca953" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M5 12l14 0" />
+                            <path d="M15 16l4 -4" />
+                            <path d="M15 8l4 4" />
+                        </svg>
+                        
+                        
+                        
+                    </li>
+                </ul>
+                    
+                </mat-card-content>
+            </mat-card>
+        </div>
+        
+        <div fxLayout="row " class="ms-5" fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign.sm="center center">
+            <div class="d-flex flex-column ">
+                <h5 class="text fw-bold align-item-center c  ms-5"><span class="ms-4"> Email </span><br>Configuration</h5>
+                <img src="assets\email.png" class="email ms-1"> 
+            </div>
+            <div class="examplee-card  ms-4">
+                <div >
+                <h5 class="text mb-2 mc fw-bold c"> Domain Blocklist 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cca953" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M5 12l14 0" />
+                    <path d="M15 16l4 -4" />
+                    <path d="M15 8l4 4" />
+                    </svg>
+                </h5>
+                <p>Secure your inbox with our Email Domain Blocklist.<br>
+                    Block malicious domains, reduce clutter, and<br>
+                    customize notifications for a safer and more<br>
+                    streamlined email experience.
+                </p>
+                </div>
+            </div>
+            <div class="vr1 ms-3" fxHide.xs fxHide.sm ></div>
+            <div class="examplee-card  ms-4" fxLayout.xs="column">
+                <h5 class="text mb-2 mc fw-bold c" fxFlex.xs="100%">  Manage Email Template
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cca953" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M5 12l14 0" />
+                    <path d="M15 16l4 -4" />
+                    <path d="M15 8l4 4" />
+                    </svg>
+                </h5>
+                <p>Streamline your approval process with our Email Template for<br>
+                    efficient requests and responses,keeping stakeholder informed<br>
+                    and decisions prompt.Automate your reminders and escalations<br>
+                    with our Email Template, ensuring timely and keeping<br>
+                    everyone on track.
+                </p>
+            </div>
+        </div>
+    
+        
+    </div>
+
+    <!-- ****************************** form drawer ************************************ -->
+    
+
+
+    
+
+    <!-- ***********************************search *********************************** -->
+
+    <!-- <mat-form-field class="w-50 my-5 ms-5" appearance="outline" >
+        <mat-label>Search the User</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search the User" #input >
+    </mat-form-field> -->
+    
+    
+      
+    <mat-form-field class="me-2 ms-5">
+        <div>
+          <input matInput (keyup)="applyFilter($event, 'id')" placeholder="Search ID" #idInput>
+        </div>
+    </mat-form-field>
+
+
+
+    <mat-form-field class="me-2 ms-5">
+        <div>
+          <input matInput (keyup)="applyFilter($event, 'firstName')" placeholder="Search First Name" #firstNameInput>
+        </div>
+    </mat-form-field>
+
+    <mat-form-field class="me-2 ms-5">
+        <div>
+            <input matInput (keyup)="applyFilter($event, 'lastName')" placeholder="Search last Name" #lastNameInput>
+        </div>
+    </mat-form-field>
+
+    <mat-form-field class="me-2 ms-5">
+        <div>
+            <input matInput (keyup)="applyFilter($event, 'email')" placeholder="Search email" #emailInput>
+        </div>
+    </mat-form-field>
+
+    <mat-form-field class="me-2 ms-5">
+        <div>
+            <input matInput (keyup)="applyFilter($event, 'dob')" placeholder="Search DOB" #dobInput>
+        </div>
+    </mat-form-field>
+
+    <mat-form-field class="me-2 ms-5">
+        <div>
+            <input matInput (keyup)="applyFilter($event, 'gender')" placeholder="Search Gender" #genderInput>
+        </div>
+    </mat-form-field>
+
+    <button type="button" mat-raised-button style="color: white !important; background-color: #339e94;" (click)="rightDraw.toggle()" class="ms-2">
+        ADD
+    </button>
+    
+        <!-- **************************************************************table starts here**********************************************-->
+    
+    <table mat-table class="mat-elevation-z8 table table-striped" fxFlexOffset="50px" [dataSource]="dataSource" matSort >
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="fs-5 text-secondary"> ID </th>
+            <td mat-cell *matCellDef="let user"> {{user.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="fs-5 text-secondary"> First Name </th>
+            <td mat-cell *matCellDef="let user"> {{user.firstName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="fs-5 text-secondary"> Last Name </th>
+            <td mat-cell *matCellDef="let user"> {{user.lastName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="fs-5 text-secondary"> Email </th>
+            <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dob">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="fs-5 text-secondary"> Dob </th>
+            <td mat-cell *matCellDef="let user"> {{user.dob | date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="gender">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="fs-5 text-secondary"> Gender </th>
+            <td mat-cell *matCellDef="let user"> {{user.gender}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="files">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="fs-5 text-secondary"> Files </th>
+            <td mat-cell *matCellDef="let user">
+                <img *ngIf="user.image" [src]="user.image" alt="Profile Image" class="profile-image">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="fs-5 text-secondary"> Action </th>
+            <td mat-cell *matCellDef="let user">
+                <button mat-icon-button color="primary" (click)="editUser(user)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="deleteUser(user)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+        <!-- record not found -->
+        
+        <div *ngIf="dataSource.filteredData.length === 0" class="fs-3 text-center">
+            No records found.
+        </div>
+        
+
+        <!-- paginator  -->
+        <mat-paginator [pageSizeOptions]="[3, 5, 10,25]"  fxFlexOffset="50px" aria-label="Select page of users"></mat-paginator>
+
+        <p class="text-secondary footer" fxFlexOffset="60px">Copyright 2023 All rights reserved by Oman Investment Authority, Sultanate of Oman</p>
+        
+        
+</mat-drawer-container>
+
+
+    
+
+
+
